@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSnap Mood Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-50 font-sans leading-relaxed tracking-wide">
+
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-12">
+        <!-- Title -->
+        <h1 id="title" class="text-5xl font-semibold text-center text-yellow-800 fade-in">
+            Hello Mustang, how are you feeling today?
+        </h1>
+
+        <!-- Mood Submission Section -->
+        <div id="moodSubmission" class="fade-in hidden">
+            <select id="moodSelect" class="mood-selector">
+                <option value="" disabled selected>Select your mood...</option>
+                <option value="happy">Happy 😊</option>
+                <option value="neutral">Neutral 😐</option>
+                <option value="sad">Sad 😢</option>
+                <option value="stressed">Stressed 😰</option>
+                <option value="angry">Angry 😡</option>
+            </select>
+            <button id="submitMood"
+                class="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:bg-blue-700">
+                Submit Mood
+            </button>
+        </div>
+
+        <!-- Mood Schedule Section -->
+        <div id="moodSchedule" class="mood-schedule-container hidden fade-in">
+            <!-- Rows populated by JavaScript -->
+            <div id="moodRows" class="grid grid-cols-1 gap-2"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

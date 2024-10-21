@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Raleway Heavy';
+  src: url('Raleway-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+h1 {
+  padding-top: 15px;
+  font-family: 'Raleway Heavy', sans-serif;
+}
+
+/* General Body Styles */
+body {
+  background: linear-gradient(135deg, rgba(218, 237, 233, 1) 0%, rgba(172, 210, 208, 1) 100%);
+  animation: backgroundFade 5s infinite alternate;
+}
+
+.mood-selector {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.mood-selector:hover {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 10px rgba(30, 58, 138, 0.3);
+}
+
+/* Mood Schedule Container */
+.mood-schedule-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Glassmorphic Mood Row */
+.mood-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  padding-bottom: 10px;
+}
+
+/* Mood-specific Colors */
+.mood-happy {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.mood-neutral {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.mood-sad {
+  background-color: rgba(0, 0, 255, 0.2);
+}
+
+.mood-stressed {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+.mood-angry {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.mood-time {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.mood-value {
+  font-size: 1.2rem;
+  color: #1e3a8a;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes backgroundFade {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}

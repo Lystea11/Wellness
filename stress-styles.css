@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    overflow: hidden;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Left and Right Borders */
+.side-border {
+    position: fixed;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+.side-border.left {
+    left: 0;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.side-border.right {
+    right: 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Breathing Circle Styling */
+.breathing-circle {
+    width: 80%; /* Increase size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.circle-container {
+    position: relative;
+}
+
+.circle {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #84fab0, #8fd3f4, #84fab0);
+    animation: rotate 20s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.countdown {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 10rem; /* Increase size */
+    font-weight: bold;
+    background: conic-gradient(from 0deg, #84fab0, #8fd3f4, #84fab0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: subtlePulse 1s ease-out infinite;
+    pointer-events: none;
+}
+
+.inner-circle {
+    width: 85%; /* Adjusted size for proportion */
+    height: 85%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #e0eafc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+/* Instructions Styling */
+.instructions {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    position: absolute;
+    top: 120%;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem; /* Increase size */
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05); /* Slightly stronger pulse */
+    }
+}
+
+@keyframes expandAnimation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes shrinkAnimation {
+    from {
+        transform: scale(1.15);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.expandAnimation {
+    animation: expandAnimation 4s forwards;
+}
+
+.shrink {
+    animation: shrinkAnimation 8s forwards;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.resources {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+}
+
+.resources h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.youtube-links a {
+    display: block;
+    color: #84fab0;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.youtube-links a:hover {
+    color: #8fd3f4;
+}
+
+
+.tips h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.side-content {
+    position: fixed;
+    top: 20%;
+    width: 15%;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-align: center;
+    z-index: 2; /* Ensure side content is above other elements */
+}
+
+/* Ensure Side Borders and Circle do not overlap */
+.side-border {
+    z-index: 0;
+}
+
+.breathing-circle {
+    z-index: 1; /* Circle stays behind the side content */
+}
+
+/* Left and Right Content Position */
+.left-content {
+    left: 2%; /* Position on the left side */
+}
+
+.right-content {
+    right: 2%; /* Position on the right side */
+}
+
+/* Heading Styles for Side Content */
+.side-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Links Styling */
+.youtube-links a {
+    display: block;
+    color: #84fab0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin: 5px 0;
+    transition: color 0.3s ease;
+    z-index: 3; /* Ensure clickable links */
+    position: relative;
+}
+
+.youtube-links a:hover {
+    color: #8fd3f4;
+}
+
+/* Tips List */
+.tips {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.tips li {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.modal {
+    z-index: 50;
+  }
+  
+  .modal-overlay {
+    z-index: -1;
+  }
+  
+  .modal-content {
+    z-index: 1;
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  /* Modal positioning and styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal:not(.hidden) {
+    display: flex;
+  }
+  
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    z-index: 2;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Close button styling */
+  #closeModal {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }

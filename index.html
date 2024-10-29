@@ -5,42 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindSnap Mood Tracker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-gray-50 font-sans leading-relaxed tracking-wide">
-
-    <div class="flex flex-col items-center justify-center min-h-screen space-y-12">
-        <!-- Title -->
-        <h1 id="title" class="text-5xl font-semibold text-center text-yellow-800 fade-in">
+<body class="bg-gradient-to-r from-teal-50 to-blue-50 min-h-screen flex items-center justify-center p-8">
+    <div class="max-w-4xl w-full bg-white rounded-lg shadow-xl p-10 space-y-8">
+        <!-- Greeting Heading -->
+        <h1 id="greeting" class="text-4xl font-bold text-gray-800 text-center">
             Hello Mustang, how are you feeling today?
         </h1>
 
         <!-- Mood Submission Section -->
-        <div id="moodSubmission" class="fade-in hidden">
-            <select id="moodSelect" class="mood-selector">
-                <option value="" disabled selected>Select your mood...</option>
-                <option value="happy">Happy 😊</option>
-                <option value="neutral">Neutral 😐</option>
-                <option value="sad">Sad 😢</option>
-                <option value="stressed">Stressed 😰</option>
-                <option value="angry">Angry 😡</option>
-            </select>
-            <button id="submitMood"
-                class="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:bg-blue-700">
-                Submit Mood
-            </button>
+        <div id="moodSubmission" class="w-full hidden">
+            <div class="mood-options">
+                <!-- Mood buttons -->
+                <button class="mood-option" data-mood="ecstatic">
+                    <span class="emoji">🥳</span>
+                    <span class="label">Ecstatic</span>
+                </button>
+                <button class="mood-option" data-mood="happy">
+                    <span class="emoji">😊</span>
+                    <span class="label">Happy</span>
+                </button>
+                <button class="mood-option" data-mood="neutral">
+                    <span class="emoji">😐</span>
+                    <span class="label">Neutral</span>
+                </button>
+                <button class="mood-option" data-mood="sad">
+                    <span class="emoji">😢</span>
+                    <span class="label">Sad</span>
+                </button>
+                <button class="mood-option" data-mood="stressed">
+                    <span class="emoji">😰</span>
+                    <span class="label">Stressed</span>
+                </button>
+                <button class="mood-option" data-mood="angry">
+                    <span class="emoji">😡</span>
+                    <span class="label">Angry</span>
+                </button>
+            </div>
         </div>
 
-        <!-- Mood Schedule Section -->
-        <div id="moodSchedule" class="mood-schedule-container hidden fade-in">
-            <!-- Rows populated by JavaScript -->
-            <div id="moodRows" class="grid grid-cols-1 gap-2"></div>
+        <!-- Mood History Section -->
+        <div id="mindSnapApp" class="p-6 bg-gray-50 rounded-lg shadow-md hidden">
+            <h2 class="text-2xl font-semibold text-center mb-6">Your Mood History</h2>
+            <div class="timeline" id="moodRows">
+                <!-- Mood entries will populate dynamically here -->
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <div id="affirmationModal" class="modal hidden fixed inset-0 flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+        <div class="modal-content bg-white rounded-lg shadow-lg p-6 relative">
+            <button id="closeModal" class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700">
+                &times;
+            </button>
+            <p id="affirmationText" class="text-lg font-semibold text-center"></p>
+        </div>
+    </div>
+    <button id="stressButton" class="mt-10 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-500 transition">
+        Feeling stressed?
+    </button>
+
+    <!-- Include your scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="script.js"></script>
 </body>
 

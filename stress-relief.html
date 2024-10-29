@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stress Relief</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
-
-  <style>
-    /* Glassmorphism styles for buttons */
-    .glass-button {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 15px 30px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-
-    .glass-button:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.3);
-    }
-
-    body {
-      background: linear-gradient(135deg, rgba(198, 234, 252, 1) 0%, rgba(158, 206, 229, 1) 100%);
-    }
-
-    h1 {
-      font-family: 'Raleway Heavy', sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Stress Relief - 4-7-8 Breathing Technique</title>
+    <!-- Font Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="stress-styles.css">
 </head>
-<body class="bg-gray-50 font-sans leading-relaxed tracking-wide">
+<body>
 
-  <div class="flex flex-col items-center justify-center min-h-screen">
-    <header class="text-center py-10 mb-16 w-full">
-      <h1 class="text-green-700 text-5xl font-bold">Stress Relief</h1>
-      <p class="text-gray-600 text-lg mt-4">Take a deep breath and relax.</p>
-    </header>
+    <!-- Left Border -->
 
-    <div class="mt-10">
-      <a href="index.html" class="glass-button text-lg text-gray-800 font-semibold">
-        Back to Home
-      </a>
+    <div class="container">
+        <!-- Center Enhanced Breathing Circle -->
+        <div class="breathing-circle">
+            <div class="circle-container">
+                <div class="circle">
+                    <div class="inner-circle"></div>
+                </div>
+                <div class="countdown">7</div> <!-- Countdown placeholder -->
+                <div class="instructions">Breathe In</div>
+            </div>
+        </div>
     </div>
-  </div>
 
+    <!-- Left Side Content: YouTube Links -->
+    <div class="side-content left-content">
+        <h2>Relaxing Videos</h2>
+        <ul class="youtube-links">
+            <li><a href="https://www.youtube.com/watch?v=rs9S-9YTUgA" target="_blank">Relaxing Music for Focus</a></li>
+            <li><a href="https://www.youtube.com/watch?v=inpok4MKVLM" target="_blank">Guided Meditation for Stress Relief</a></li>
+            <li><a href="https://www.youtube.com/watch?v=aXItOY0sLRY" target="_blank">4-7-8 Breathing Technique Guide</a></li>
+        </ul>
+    </div>
+
+    <!-- Right Side Content: Stress Relief Tips -->
+    <div class="side-content right-content">
+        <h2>Quick Tips for Stress Relief</h2>
+        <ul class="tips">
+            <li>Stretch for 5 minutes to relax muscles.</li>
+            <li>Practice mindfulness for 2 minutes during breaks.</li>
+            <li>Keep a stress journal to track emotions.</li>
+        </ul>
+    </div>
+
+    <div id="affirmationModal" class="modal hidden fixed inset-0 flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+        <div class="modal-content bg-white rounded-lg shadow-lg p-6 relative">
+            <button id="closeModal" class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700">
+                &times;
+            </button>
+            <p id="affirmationText" class="text-lg font-semibold text-center"></p>
+        </div>
+    </div>
+
+    <script src="stress.js"></script>
 </body>
 </html>

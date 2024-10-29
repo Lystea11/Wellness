@@ -1,109 +1,266 @@
 @font-face {
-  font-family: 'Raleway Heavy';
-  src: url('Raleway-Heavy.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
+  font-family: Raleway;
+  src: url('Raleway-Heavy.ttf');
 }
 
-h1 {
-  padding-top: 15px;
-  font-family: 'Raleway Heavy', sans-serif;
-}
-
-/* General Body Styles */
+/* Body Styling */
 body {
-  background: linear-gradient(135deg, rgba(218, 237, 233, 1) 0%, rgba(172, 210, 208, 1) 100%);
-  animation: backgroundFade 5s infinite alternate;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f0f4f8;
 }
 
-.mood-selector {
-  width: 100%;
-  max-width: 200px;
-  padding: 10px;
-  border: 2px solid black;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: all 0.3s ease;
+.h1 .h2 .h3 .h4 {
+  font-family: Raleway;
 }
 
 
-.mood-selector:hover {
-  border-color: #1e3a8a;
-  box-shadow: 0 0 10px rgba(30, 58, 138, 0.3);
+
+/* Timeline Container */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
 }
 
-/* Mood Schedule Container */
-.mood-schedule-container {
-  width: 100%;
-  max-width: 800px;
-}
-
-/* Glassmorphic Mood Row */
+/* Mood Row Styling */
 .mood-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  padding-bottom: 10px;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #ffffff; /* Default text color is white */
 }
 
-/* Mood-specific Colors */
+/* Hover Effects */
+.mood-row:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Overlay */
+.mood-row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease-in-out;
+}
+
+.mood-row:hover::after {
+  left: 100%;
+}
+
+/* Mood Backgrounds with High Contrast Colors */
+.mood-ecstatic {
+  background-color: #8e24aa; /* Deep Purple */
+}
+
 .mood-happy {
-  background-color: rgba(0, 255, 0, 0.2);
+  background-color: #fdd835; /* Golden Yellow */
 }
 
 .mood-neutral {
-  background-color: rgba(128, 128, 128, 0.2);
+  background-color: #616161; /* Dark Gray */
 }
 
 .mood-sad {
-  background-color: rgba(0, 0, 255, 0.2);
+  background-color: #1e88e5; /* Bright Blue */
 }
 
 .mood-stressed {
-  background-color: rgba(255, 165, 0, 0.2);
+  background-color: #d84315; /* Dark Orange */
 }
 
 .mood-angry {
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: #b71c1c; /* Deep Red */
+}
+
+/* Mood Row Text Styling */
+.mood-time,
+.mood-value {
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .mood-time {
-  font-size: 1.2rem;
-  color: #333;
-  font-weight: bold;
+  width: 100px;
+  text-align: left;
 }
 
 .mood-value {
-  font-size: 1.2rem;
-  color: #1e3a8a;
+  flex-grow: 1;
+  text-align: right;
 }
 
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in-out forwards;
+/* Adjust Text Color for High Contrast */
+.mood-happy .mood-time,
+.mood-happy .mood-value {
+  color: #000000; /* Black text for better contrast */
+  text-shadow: none;
 }
 
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+/* Ensure Text Shadows for White Text */
+.mood-ecstatic .mood-time,
+.mood-ecstatic .mood-value,
+.mood-neutral .mood-time,
+.mood-neutral .mood-value,
+.mood-sad .mood-time,
+.mood-sad .mood-value,
+.mood-stressed .mood-time,
+.mood-stressed .mood-value,
+.mood-angry .mood-time,
+.mood-angry .mood-value {
+  color: #ffffff; /* White text */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes backgroundFade {
-  0% {
-      background-position: 0% 50%;
-  }
-  100% {
-      background-position: 100% 50%;
-  }
+/* Mood Options Styling */
+.mood-options {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center;
+  gap: 16px; /* Space between buttons */
+}
+
+.mood-option {
+  width: 120px; /* Set a fixed width for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.mood-option .emoji {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.mood-option .label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Animation and Hover Effects for Mood Options */
+.mood-option::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(56, 178, 172, 0.1); /* Teal overlay */
+  transition: width 0.3s;
+  z-index: 0;
+}
+
+.mood-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.mood-option:hover::after {
+  width: 100%;
+}
+
+.mood-option:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the content is above the overlay */
+.mood-option .emoji,
+.mood-option .label {
+  position: relative;
+  z-index: 1;
+}
+.modal {
+  z-index: 50;
+}
+
+.modal-overlay {
+  z-index: -1;
+}
+
+.modal-content {
+  z-index: 1;
+  max-width: 500px;
+  width: 90%;
+}
+
+/* Modal positioning and styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal:not(.hidden) {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  z-index: 2;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Close button styling */
+#closeModal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+#stressButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
 }

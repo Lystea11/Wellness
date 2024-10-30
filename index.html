@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-gradient-to-r from-teal-50 to-blue-50 min-h-screen flex items-center justify-center p-8">
-    <div class="max-w-4xl w-full bg-white rounded-lg shadow-xl p-10 space-y-8">
+<body class="bg-gradient-to-r from-teal-50 to-blue-50 min-h-screen flex flex-col">
+    <div class="flex-grow max-w-4xl w-full mx-auto bg-white rounded-lg shadow-xl p-10 space-y-8">
         <!-- Greeting Heading -->
         <h1 id="greeting" class="text-4xl font-bold text-gray-800 text-center">
             Hello Mustang, how are you feeling today?
@@ -68,11 +68,16 @@
             <p id="affirmationText" class="text-lg font-semibold text-center"></p>
         </div>
     </div>
-    <button id="stressButton" class="mt-10 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-500 transition">
-        Feeling stressed?
-    </button>
 
-    <!-- Include your scripts -->
+    <div class="button-container fixed bottom-20 right-20">
+        <button id="contactButton" class="action-button">
+            Contact ASIJ
+        </button>
+        <button id="stressButton" class="action-button">
+            Feeling stressed?
+        </button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="script.js"></script>
 </body>

@@ -28,6 +28,11 @@ function initializeApp() {
         window.location.href = 'stress-relief.html';
     });
 
+    const contactButton = document.getElementById('contactButton');
+    contactButton.addEventListener('click', () => {
+        window.location.href = 'mailto:ehopwood@asij.ac.jp';  // Replace with the correct email
+    });
+
     // Modal elements
     const affirmationModal = document.getElementById('affirmationModal');
     const affirmationText = document.getElementById('affirmationText');

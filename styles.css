@@ -5,9 +5,16 @@
 
 /* Body Styling */
 body {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
+
+.flex-grow {
+  flex: 1;
+}
+
 
 .h1 .h2 .h3 .h4 {
   font-family: Raleway;
@@ -263,4 +270,65 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.contact-section {
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: white;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.contact-section a {
+  color: #fbbf24; /* Tailwind's yellow-300 */
+  text-decoration: underline;
+}
+
+.contact-section a:hover {
+  text-decoration: none;
+}
+
+.contact-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-section li {
+  font-size: 1rem;
+}
+
+.button-container {
+  height: 100px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column; /* Force horizontal alignment */
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px; /* Space between buttons */
+}
+
+/* Shared button styling */
+.action-button {
+  background-color: #2563eb; /* Tailwind's blue-600 */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Button hover effect */
+.action-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
 }
